@@ -3,7 +3,7 @@ import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
 
 const prepare = async () => {
-  const { worker } = await import('./app/mocks/browser');
+  const { worker } = await import('./app/core/mocks/browser');
 
   return worker.start({
     onUnhandledRequest: 'bypass',
