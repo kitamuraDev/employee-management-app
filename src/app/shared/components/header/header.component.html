@@ -1,0 +1,31 @@
+<header class="bg-gray-50">
+  <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+    <div class="sm:flex sm:items-center sm:justify-between">
+      <div class="text-center sm:text-left">
+        <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl">社員管理アプリケーション</h1>
+        <nav>
+          <ul class="mt-6 flex gap-2">
+            <li>
+              <a
+                routerLink="/dashboard"
+                class="rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-white hover:text-gray-700 cursor-pointer"
+              >
+                ダッシュボード
+              </a>
+            </li>
+            <li>
+              <a
+                routerLink="/employees"
+                class="rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-white hover:text-gray-700 cursor-pointer"
+              >
+                社員一覧
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <app-search-employee></app-search-employee>
+    </div>
+  </div>
+</header>
