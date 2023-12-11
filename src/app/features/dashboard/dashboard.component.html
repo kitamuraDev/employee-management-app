@@ -1,0 +1,10 @@
+<section class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+  <h2 class="text-lg sm:text-xl font-semibold text-gray-700">会社役員</h2>
+  <ul class="mt-6 flex gap-5">
+    @for (officer of officers(); track $index) {
+      <li>
+        <a href="" class="block px-8 py-6 rounded-sm hover:bg-gray-50">{{ officer.name }}</a>
+      </li>
+    }
+  </ul>
+</section>
