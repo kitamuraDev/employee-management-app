@@ -8,8 +8,10 @@ import { Employees } from '../types/employees';
 export class EmployeeService {
   private readonly http = inject(HttpClient);
 
+  private readonly API_URL = '/api/employees';
+
   // 全件取得
   getAllEmployee() {
-    return this.http.get<Employees[]>('/init');
+    return this.http.get<Employees[]>(this.API_URL);
   }
 }

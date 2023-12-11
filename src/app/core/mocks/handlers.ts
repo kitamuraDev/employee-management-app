@@ -4,9 +4,7 @@ import { EmployeeDatabase } from '../db/employee-database';
 const db = new EmployeeDatabase();
 
 export const handlers = [
-  // 初期データを取得するエンドポイント
-  http.get('/init', async () => {
-    await db.initDatabase();
+  http.get('/api/employees', async () => {
     const result = await db.getAllEmployee();
 
     return HttpResponse.json(result);
