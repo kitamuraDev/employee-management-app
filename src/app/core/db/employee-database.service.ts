@@ -1,7 +1,11 @@
 import Dexie from 'dexie';
 import { Employees } from '../../shared/types/employees';
+import { Injectable } from '@angular/core';
 
-export class EmployeeDatabase extends Dexie {
+@Injectable({
+  providedIn: 'root',
+})
+export class EmployeeDatabaseService extends Dexie {
   private employees: Dexie.Table<Employees, number>;
 
   constructor() {
@@ -35,5 +39,22 @@ export class EmployeeDatabase extends Dexie {
   // 全件取得
   async getAllEmployee() {
     return await this.employees.toArray();
+  }
+
+  // 単件取得
+  async getEmployee(postedId: number) {
+    const employee = await this.employees.get(postedId);
+
+    if (!employee) throw new Error('指定したIDの社員は見つかりませんでした');
+
+    return employee;
+  }
+
+  // 追加
+  async addEmployee(form: string) {
+    const postedId = await this.employees.add({ name: form });
+    const postedRecord = await this.getEmployee(postedId);
+
+    return postedRecord;
   }
 }
