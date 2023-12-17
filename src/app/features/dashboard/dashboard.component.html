@@ -3,7 +3,9 @@
   <ul class="mt-6 flex gap-5">
     @for (officer of officers(); track $index) {
       <li>
-        <a href="" class="block px-8 py-6 rounded-sm hover:bg-gray-50">{{ officer.name }}</a>
+        <a routerLink="/detail/{{ officer.id }}" class="block px-8 py-6 rounded-sm hover:bg-gray-50">{{
+          officer.name
+        }}</a>
       </li>
     }
   </ul>
