@@ -1,7 +1,7 @@
 import { HttpResponse, http } from 'msw';
-import { EmployeeDatabase } from '../db/employee-database';
+import { EmployeeDatabaseService } from '../db/employee-database.service';
 
-const db = new EmployeeDatabase();
+const db = new EmployeeDatabaseService();
 
 export const handlers = [
   http.get('/api/employees', async () => {
