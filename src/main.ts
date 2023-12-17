@@ -4,14 +4,14 @@ import { AppComponent } from './app/app.component';
 
 const prepare = async () => {
   const { EmployeeDatabaseService } = await import('./app/core/db/employee-database.service');
-  const { worker } = await import('./app/core/mocks/browser');
+  const dbService = new EmployeeDatabaseService();
 
-  // データベースに初期データを注入
-  await new EmployeeDatabaseService().initDatabase();
+  const length = await (await dbService.getAllEmployee()).length;
 
-  return worker.start({
-    onUnhandledRequest: 'bypass',
-  });
+  // DB長が1より小さい（つまり0）時に初期データを注入する
+  if (length < 1) {
+    await dbService.init();
+  }
 };
 
 prepare()

@@ -21,8 +21,8 @@ export class EmployeeDatabaseService extends Dexie {
   }
 
   // 初期データの注入
-  async initDatabase() {
-    return await this.employees.bulkAdd([
+  async init() {
+    await this.employees.bulkAdd([
       { name: '武山 岳大' },
       { name: '駒倉 光紀' },
       { name: '長田 研太' },

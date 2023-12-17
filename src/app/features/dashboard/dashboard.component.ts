@@ -14,6 +14,6 @@ export default class DashboardComponent implements OnInit {
   readonly officers = signal<Employees[]>([]);
 
   ngOnInit(): void {
-    this.employeeService.getAllEmployee().subscribe((employee) => this.officers.set(employee.slice(1, 5)));
+    this.employeeService.getAllEmployee().then((values) => this.officers.set(values.slice(1, 5)));
   }
 }

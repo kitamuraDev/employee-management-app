@@ -18,9 +18,9 @@
 
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-v3.3.6-blue)
 
-### Mock
+### Data Store
 
-![MockServiceWorker](https://img.shields.io/badge/MockServiceWorker-v2.0.10-red)
+![Dexie](https://img.shields.io/badge/Dexie-v3.2.4-blue)
 
 ### Linter / Formatter
 

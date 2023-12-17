@@ -16,7 +16,7 @@ export default class EmployeesComponent implements OnInit {
   readonly employees = signal<Employees[]>([]);
 
   ngOnInit(): void {
-    this.getAllEmployee().subscribe((employee) => this.employees.set(employee));
+    this.getAllEmployee().then((values) => this.employees.set(values));
   }
 
   // 全件取得
