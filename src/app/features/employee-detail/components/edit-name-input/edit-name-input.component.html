@@ -1,0 +1,11 @@
+<div class="{{ isEdit ? 'block' : 'hidden' }}">
+  <label class="sr-only" for="name">Employee name</label>
+  <input
+    #input
+    type="text"
+    id="name"
+    value="{{ employee().name }}"
+    (keydown.enter)="handleEditEmployee(input.value)"
+    class="h-8 rounded-lg border-none bg-white ps-4 pe-6 shadow-sm"
+  />
+</div>

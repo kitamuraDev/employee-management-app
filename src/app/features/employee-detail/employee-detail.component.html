@@ -1,0 +1,32 @@
+<section class="mx-auto max-w-screen-md rounded-lg p-4 sm:p-6 lg:p-8 mt-12">
+  <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+    <thead>
+      <tr>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">ID</th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">名前</th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">編集</th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">削除</th>
+      </tr>
+    </thead>
+
+    <tbody class="text-center divide-y divide-gray-200">
+      <tr>
+        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{{ employee().id }}</td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+          <app-display-name [isEdit]="isEdit" [employee]="employee"></app-display-name>
+          <app-edit-name-input
+            [isEdit]="isEdit"
+            [employee]="employee"
+            (editEmployee)="editEmployee($event)"
+          ></app-edit-name-input>
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+          <app-edit-button (toggleEditMode)="toggleEditMode()"></app-edit-button>
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+          <app-delete-button (deleteEmployee)="deleteEmployee()"></app-delete-button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>

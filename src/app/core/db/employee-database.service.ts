@@ -57,4 +57,14 @@ export class EmployeeDatabaseService extends Dexie {
 
     return postedRecord;
   }
+
+  // 編集
+  async editEmployee(form: string, editId: number) {
+    await this.employees.update(editId, { name: form });
+  }
+
+  // 削除
+  async deleteEmployee(id: number) {
+    await this.employees.delete(id);
+  }
 }
