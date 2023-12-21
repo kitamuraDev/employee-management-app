@@ -31,4 +31,9 @@ export class EmployeeService {
   async deleteEmployee(id: number) {
     await this.dbService.deleteEmployee(id);
   }
+
+  // 検索
+  async searchEmployee(name: string) {
+    return await this.dbService.searchEmployee(name);
+  }
 }

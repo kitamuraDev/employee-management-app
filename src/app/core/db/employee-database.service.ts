@@ -67,4 +67,9 @@ export class EmployeeDatabaseService extends Dexie {
   async deleteEmployee(id: number) {
     await this.employees.delete(id);
   }
+
+  // 検索
+  async searchEmployee(name: string) {
+    return await this.employees.where({ name }).toArray();
+  }
 }

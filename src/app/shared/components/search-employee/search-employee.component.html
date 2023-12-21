@@ -5,6 +5,8 @@
     id="search"
     type="search"
     placeholder="社員名で検索..."
+    #input
+    (input)="search(input.value)"
   />
 
   <button
@@ -24,3 +26,13 @@
     </svg>
   </button>
 </div>
+
+<ul class="px-4 py-2">
+  @for (employee of employees(); track $index) {
+    <li class="px-1 py-1">
+      <a class="text-gray-500 text-sm block" (click)="resetSearchData()" routerLink="/detail/{{ employee.id }}">
+        {{ employee.name }}
+      </a>
+    </li>
+  }
+</ul>
