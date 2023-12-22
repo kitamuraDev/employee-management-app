@@ -5,4 +5,5 @@ export const routes: Routes = [
   { path: 'dashboard', loadComponent: () => import('./features/dashboard/dashboard.component') },
   { path: 'detail/:id', loadComponent: () => import('./features/employee-detail/employee-detail.component') },
   { path: 'employees', loadComponent: () => import('./features/employees/employees.component') },
+  { path: '**', loadComponent: () => import('./features/not-found/not-found.component') },
 ];
