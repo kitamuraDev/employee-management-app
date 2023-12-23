@@ -1,5 +1,5 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
-import { EmployeeService } from '../../shared/services/employee.service';
+import { EmployeeService } from '../../shared/services/employee/employee.service';
 import { Employees } from '../../shared/types/employees';
 import { RouterLink } from '@angular/router';
 

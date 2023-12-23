@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/components/header/header.component';
+import { TitleService } from './shared/services/title/title.service';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +10,10 @@ import { HeaderComponent } from './shared/components/header/header.component';
   imports: [CommonModule, RouterOutlet, HeaderComponent],
   templateUrl: './app.component.html',
 })
-export class AppComponent {}
+export class AppComponent implements OnInit {
+  private readonly titleService = inject(TitleService);
+
+  ngOnInit(): void {
+    this.titleService.setTitle();
+  }
+}
