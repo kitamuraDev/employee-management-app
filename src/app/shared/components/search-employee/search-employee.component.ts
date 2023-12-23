@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild, inject, signal } from '@angular/core';
-import { EmployeeService } from '../../services/employee.service';
+import { EmployeeService } from '../../services/employee/employee.service';
 import { Employees } from '../../types/employees';
 import { Subject, debounceTime } from 'rxjs';
 import { distinctUntilChanged, switchMap } from 'rxjs/operators';

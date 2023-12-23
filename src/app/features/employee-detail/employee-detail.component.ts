@@ -1,11 +1,12 @@
 import { Component, Input, OnInit, Signal, inject, signal } from '@angular/core';
 import { Employees } from '../../shared/types/employees';
 import { EditButtonComponent } from './components/edit-button/edit-button.component';
-import { EmployeeService } from '../../shared/services/employee.service';
+import { EmployeeService } from '../../shared/services/employee/employee.service';
 import { Router } from '@angular/router';
 import { DeleteButtonComponent } from './components/delete-button/delete-button.component';
 import { EditNameInputComponent } from './components/edit-name-input/edit-name-input.component';
 import { DisplayNameComponent } from './components/display-name/display-name.component';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-employee-detail',
@@ -15,6 +16,7 @@ import { DisplayNameComponent } from './components/display-name/display-name.com
 })
 export default class EmployeeDetailComponent implements OnInit {
   @Input({ required: true }) id!: string;
+  private readonly titleService = inject(Title);
   private readonly router = inject(Router);
   private readonly employeeService = inject(EmployeeService);
 
@@ -22,7 +24,14 @@ export default class EmployeeDetailComponent implements OnInit {
   isEdit = false;
 
   ngOnInit(): void {
-    this.getEmployee().then((value) => (this.employee = signal(value)));
+    this.getEmployee().then((value) => {
+      this.setTitle(value.name);
+      this.employee = signal(value);
+    });
+  }
+
+  setTitle(name: string): void {
+    this.titleService.setTitle(`社員管理アプリケーション - ${name}`);
   }
 
   toggleEditMode(): void {
