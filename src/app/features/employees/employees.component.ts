@@ -3,11 +3,12 @@ import { AddEmployeeComponent } from './components/add-employee/add-employee.com
 import { EmployeeService } from '../../shared/services/employee/employee.service';
 import { Employees } from '../../shared/types/employees';
 import { EmployeeListComponent } from './components/employee-list/employee-list.component';
+import { SpinnerComponent } from '../../shared/components/spinner/spinner.component';
 
 @Component({
   selector: 'app-employees',
   standalone: true,
-  imports: [AddEmployeeComponent, EmployeeListComponent],
+  imports: [AddEmployeeComponent, EmployeeListComponent, SpinnerComponent],
   templateUrl: './employees.component.html',
 })
 export default class EmployeesComponent implements OnInit {
