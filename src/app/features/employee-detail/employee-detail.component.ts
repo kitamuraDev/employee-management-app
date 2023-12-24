@@ -7,11 +7,18 @@ import { DeleteButtonComponent } from './components/delete-button/delete-button.
 import { EditNameInputComponent } from './components/edit-name-input/edit-name-input.component';
 import { DisplayNameComponent } from './components/display-name/display-name.component';
 import { Title } from '@angular/platform-browser';
+import { DeleteConfirmDialogComponent } from './components/delete-confirm-dialog/delete-confirm-dialog.component';
 
 @Component({
   selector: 'app-employee-detail',
   standalone: true,
-  imports: [DisplayNameComponent, EditNameInputComponent, EditButtonComponent, DeleteButtonComponent],
+  imports: [
+    DisplayNameComponent,
+    EditNameInputComponent,
+    EditButtonComponent,
+    DeleteButtonComponent,
+    DeleteConfirmDialogComponent,
+  ],
   templateUrl: './employee-detail.component.html',
 })
 export default class EmployeeDetailComponent implements OnInit {
@@ -22,6 +29,7 @@ export default class EmployeeDetailComponent implements OnInit {
 
   employee: Signal<Employees> = signal({ name: '' });
   isEdit = false;
+  isOpenDialog = false;
 
   ngOnInit(): void {
     this.getEmployee().then((value) => {
@@ -36,6 +44,10 @@ export default class EmployeeDetailComponent implements OnInit {
 
   toggleEditMode(): void {
     this.isEdit = !this.isEdit; // 状態を反転
+  }
+
+  toggleDialog(): void {
+    this.isOpenDialog = !this.isOpenDialog;
   }
 
   async getEmployee() {
