@@ -2,11 +2,12 @@ import { Component, OnInit, inject, signal } from '@angular/core';
 import { EmployeeService } from '../../shared/services/employee/employee.service';
 import { Employees } from '../../shared/types/employees';
 import { RouterLink } from '@angular/router';
+import { SpinnerComponent } from '../../shared/components/spinner/spinner.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, SpinnerComponent],
   templateUrl: './dashboard.component.html',
 })
 export default class DashboardComponent implements OnInit {
