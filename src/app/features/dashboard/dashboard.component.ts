@@ -3,11 +3,12 @@ import { EmployeeService } from '../../shared/services/employee/employee.service
 import { Employees } from '../../shared/types/employees';
 import { RouterLink } from '@angular/router';
 import { SpinnerComponent } from '../../shared/components/spinner/spinner.component';
+import { SectionComponent } from '../../shared/components/section/section.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [RouterLink, SpinnerComponent],
+  imports: [RouterLink, SectionComponent, SpinnerComponent],
   templateUrl: './dashboard.component.html',
 })
 export default class DashboardComponent implements OnInit {
