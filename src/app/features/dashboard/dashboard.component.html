@@ -1,5 +1,4 @@
-<section class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
-  <h2 class="text-lg sm:text-xl font-semibold text-gray-700 mx-5 sm:mx-12">会社役員</h2>
+<app-section sectionTitle="会社役員">
   @defer {
     <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-6">
       @for (officer of officers(); track $index) {
@@ -13,4 +12,4 @@
   } @placeholder (minimum 1000ms) {
     <app-spinner />
   }
-</section>
+</app-section>
