@@ -23,9 +23,18 @@
           <app-edit-button (toggleEditMode)="toggleEditMode()"></app-edit-button>
         </td>
         <td class="px-3 sm:px-6 py-4">
-          <app-delete-button (deleteEmployee)="deleteEmployee()"></app-delete-button>
+          <app-delete-button (deleteEmployee)="toggleDialog()"></app-delete-button>
         </td>
       </tr>
     </tbody>
   </table>
 </section>
+
+<!-- ダイアログを開くタイミングで読み込まれる -->
+@defer (when isOpenDialog) {
+  <app-delete-confirm-dialog
+    [isOpenDialog]="isOpenDialog"
+    (toggleDialog)="toggleDialog()"
+    (deleteEmployee)="deleteEmployee()"
+  />
+}
