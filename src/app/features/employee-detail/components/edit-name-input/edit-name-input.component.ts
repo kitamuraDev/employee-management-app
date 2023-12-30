@@ -12,7 +12,10 @@ export class EditNameInputComponent {
   @Input({ required: true }) employee!: Signal<Employees>;
   @Output() editEmployee: EventEmitter<string> = new EventEmitter<string>();
 
-  handleEditEmployee(form: string) {
-    this.editEmployee.emit(form);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onKeyDownEditEmployee(input: string, event: any) {
+    if (event.keyCode && event.keyCode !== 13) return;
+
+    this.editEmployee.emit(input);
   }
 }
