@@ -5,7 +5,7 @@
     type="text"
     id="name"
     value="{{ employee().name }}"
-    (keydown.enter)="handleEditEmployee(input.value)"
+    (keydown.enter)="onKeyDownEditEmployee(input.value, $event)"
     class="h-8 rounded-lg border-none bg-white ps-4 pe-6 shadow-sm"
   />
 </div>
